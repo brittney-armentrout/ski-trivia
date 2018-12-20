@@ -1,0 +1,61 @@
+body {
+    background: url(../images/background3.jpg);
+    background-size: 100%;
+    background-size: no-repeat;
+  }
+  
+* {
+    box-sizing: border-box;
+  }
+
+#title {
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+    font-size: 44px;
+    border: 2px solid black;
+    height: 150px;
+    width: 600px;
+    text-align: center;
+    transform: rotate(340deg);
+    transform-origin: 110% 0%;
+    
+}
+
+#timer {
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+}
+
+.btn {
+    align-content: center;
+    margin: 10px;
+    font-family: 'Major Mono Display', monospace;
+}
+
+
+#question-container {
+    align-content: center;
+    height: 300px;
+    width: 500px;
+    border: none;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, .answers {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#answers-radios {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Major Mono Display', monospace;
+    font-weight: bold;
+}
