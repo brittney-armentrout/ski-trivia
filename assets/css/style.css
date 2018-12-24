@@ -52,10 +52,14 @@ input, .answers {
     margin-right: auto;
 }
 
-#answers-radios {
+#answer-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
+}
+
+h3 {
+    font-family: 'Major Mono Display', monospace;
 }

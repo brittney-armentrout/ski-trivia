@@ -101,7 +101,6 @@ function Game() {
     }
     function quizScore() {
         
-
         var answer = triviaQuestions[currentQuestionIndex].rightAnswer
         
         // For selects, checkboxes and radio buttons, we can use :checked to select the right element.
@@ -115,33 +114,58 @@ function Game() {
             inCorrectAnswers++;
         }
     }
+
     function endGameRevealScore() {
 
     }
 
 };
 
+//end of "game" function
+
+// $(document).ready(function() {???????
+
 var currentGame = new Game();
 
+$("#next").hide();
 
 // On clicking start button, below function will be activated.
 
 $("#start").on("click", function () {
-    $("#start").remove();
+    $("#start").hide();
+    $("#next").show();
     currentGame.startTimer(); //Calling the timer function
     var i = currentGame.currentQuestionIndex 
-    console.log("finding index :: " + currentGame.currentQuestionIndex); 
-    console.log("finding question :: " + currentGame.triviaQuestions[i].question);
     $("#question-container").attr("src", currentGame.triviaQuestions[i].question);
-    console.log("finding answer length :: " + currentGame.triviaQuestions[i].answers.length);
-        for (var i = 0; i < currentGame.triviaQuestions[i].answers.length; i++) {
-            var input = $("<input>"); // Defining the radio button and assigning attributes.
-            input.attr("type", "radio");
-            input.attr("name", "question-" + i);
-            input.attr("value", currentGame.triviaQuestions[i].answers[i]);
-            $("#answers-radios").append(input).append(currentGame.triviaQuestions[i].answers[i]); //Here we are appending the radio button to each answers beloging to each question.
+    
+    
+    $("#answer1").text(currentGame.triviaQuestions[0].answers[0]);
+    $("#answer2").text(currentGame.triviaQuestions[0].answers[1]);
+    
+    
+    
+    
+    // var input = $("<input>");
+    //         input.attr("type", "radio"); 
 
-        }
+    //          input.attr("name", "answer1");
+    //         //input.attr("value", currentGame.triviaQuestions[0].answers[0]);
+    //         $("#answer-container").append(input);
+    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[0]);
+    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[1]);
+    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[2]);
+    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[3]);
+    
+    //     for (var j = 0; j < currentGame.triviaQuestions[i].answers.length; j++) {
+    //         var input = $("<input>");
+    //         input.attr("type", "radio"); 
+
+    //         // input.attr("name", "question-" + j);
+    //         input.attr("value", currentGame.triviaQuestions[i].answers[j]);
+    //         $("#answer-container").append(input);
+    //         $("#answer-container").append(currentGame.triviaQuestions[i].answers[j]);
+
+    //     }
     })
     
     $("#next").on("click", function () {
