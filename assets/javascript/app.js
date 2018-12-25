@@ -31,43 +31,43 @@ function Game() {
             rightAnswer: "Alta"
         }, {
             question: 'assets/images/zermatt.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Perisher", "Zermatt", "Eldora", "Mt. Hood"],
             rightAnswer: "Zermatt"
         }, {
             question: 'assets/images/jackson.jpg', 
-            answers: ["", "", "", ""],
-            rightAnswer: "Jackson"
+            answers: ["Taos", "Copper", "Snowbird", "Jackson Hole"],
+            rightAnswer: "Jackson Hole"
         }, {
             question: 'assets/images/whistler-blackcomb.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Crested Butte", "Whistler-Blackcomb", "Keystone", "Park City"],
             rightAnswer: "Whistler-Blackcomb"
         }, {
             question: 'assets/images/hunter.jpg', 
-            answers: ["", "", "", ""],
-            rightAnswer: "Hunter"
+            answers: ["Hunter Mountain", "Boyne", "Mt. Rose", "Bear Mountain"],
+            rightAnswer: "Hunter Mountain"
         }, {
             question: 'assets/images/sunvalley.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Sun Valley", "Northstar", "Snowbird", "Steamboat"],
             rightAnswer: "Sun Valley"
         }, {
             question: 'assets/images/tomamu.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Aspen", "Whistler-Blackcomb", "Tomamu", "Sierra-at-Tahoe"],
             rightAnswer: "Tomamu"
         }, {
             question: 'assets/images/bigsky.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Squaw-Alpine", "Vail", "Stowe", "Big Sky"],
             rightAnswer: "Big Sky"
         }, {
             question: 'assets/images/crestedbutte.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Winter Park", "Brighton", "Crested Butte", "Mt. Baker"],
             rightAnswer: "Crested Butte"
         },{
             question: 'assets/images/sugarloaf.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Sugar Loaf", "Stevens Pass", "Heavenly", "Purgatory"],
             rightAnswer: "Sugar Loaf"
         }, {
             question: 'assets/images/kirkwood.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Silverton", "Kirkwood", "Wolf Creek", "Breckenridge"],
             rightAnswer: "Kirkwood"
         }
     
@@ -95,7 +95,7 @@ function Game() {
         questionTimer--;
         if (questionTimer === -2) {
             stop();
-            // alert("Time is over!")
+            alert("Time is over!")
         }
     }
 
@@ -116,6 +116,7 @@ $("#answer-container").hide();
 
 $("#start").on("click", function () {
     $("#start").hide();
+    $("#instructions").hide();
     $("#next").show();
     $("#question-container").show();
     $("#answer-container").show();
@@ -136,6 +137,12 @@ $("#start").on("click", function () {
         
         quizScore();
 
+        if (currentGame.currentQuestionIndex === 15) {
+            endGameRevealScore();
+        }
+        
+        else {
+
         $('input[name=radio-1]').attr('checked', false);
         currentGame.startTimer();
         
@@ -146,6 +153,8 @@ $("#start").on("click", function () {
         $("#answer2").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[1]);
         $("#answer3").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[2]);
         $("#answer4").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[3]);
+    }
+
     });
 
     function quizScore() {
@@ -169,6 +178,11 @@ $("#start").on("click", function () {
             console.log("loss " + currentGame.incorrectAnswers);
         };
 
-        function endGameRevealScore() {
+    function endGameRevealScore() {
+                    alert("Correct Answers: " + currentGame.correctAnswers);
+                    alert("Incorrect Answers: " + currentGame.incorrectAnswers);
+                };
 
-        }
+
+
+            

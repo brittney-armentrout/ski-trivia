@@ -62,6 +62,7 @@ h3, label {
 }
 
 .form-check {
+    /* margin-left: 500px; */
     align-content: center;
     text-align: center;
 }
