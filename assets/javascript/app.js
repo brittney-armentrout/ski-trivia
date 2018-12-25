@@ -14,7 +14,7 @@ function Game() {
             answers: ["Bachelor", "Big Sky", "Stevens Pass", "Sun Valley"],
             rightAnswer: "Bachelor"
         }, {
-            question: 'assets/images/abasin.jpg', 
+            question: 'assets/images/abasin.png', 
             answers: ["Snowbird", "Arapahoe Basin", "Telluride", "Breckenridge"],
             rightAnswer: "Arapahoe Basin"
         }, {
@@ -78,7 +78,7 @@ function Game() {
 
     // functions what the game can do
     this.startTimer = function() {
-        questionTimer = 20;
+        questionTimer = 30;
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
     }
@@ -95,7 +95,7 @@ function Game() {
         questionTimer--;
         if (questionTimer === -2) {
             stop();
-            alert("Time is over!")
+            // alert("Time is over!")
             quizScore();
         }
     }
@@ -126,14 +126,19 @@ function Game() {
 // $(document).ready(function() {???????
 
 var currentGame = new Game();
+var currentQuestion
 
 $("#next").hide();
+$("#question-container").hide();
+$("#answer-container").hide();
 
 // On clicking start button, below function will be activated.
 
 $("#start").on("click", function () {
     $("#start").hide();
     $("#next").show();
+    $("#question-container").show();
+    $("#answer-container").show();
     currentGame.startTimer(); //Calling the timer function
     var i = currentGame.currentQuestionIndex 
     $("#question-container").attr("src", currentGame.triviaQuestions[i].question);
@@ -141,6 +146,9 @@ $("#start").on("click", function () {
     
     $("#answer1").text(currentGame.triviaQuestions[0].answers[0]);
     $("#answer2").text(currentGame.triviaQuestions[0].answers[1]);
+    $("#answer3").text(currentGame.triviaQuestions[0].answers[2]);
+    $("#answer4").text(currentGame.triviaQuestions[0].answers[3]);
+});
     
     
     
@@ -166,20 +174,17 @@ $("#start").on("click", function () {
     //         $("#answer-container").append(currentGame.triviaQuestions[i].answers[j]);
 
     //     }
-    })
+    // })
     
     $("#next").on("click", function () {
-        currentGame.startTimer(); //Calling the timer function
+        // currentGame.quizScore();
+        currentGame.startTimer();
         
-        for (var i = 1; i < currentGame.triviaQuestions.question.length; i++);
-        console.log("questions length :: " + currentGame.triviaQuestions.length);
-        $("#question-container").attr("src", currentGame.triviaQuestions[i].question);
+        currentGame.currentQuestionIndex = (currentGame.currentQuestionIndex + 1);
+        $("#question-container").attr("src", currentGame.triviaQuestions[currentGame.currentQuestionIndex].question);
             
-        for (var i = 0; i < currentGame.triviaQuestions[i].answers.length; i++) {
-                var input = $("<input>"); // Defining the radio button and assigning attributes.
-                input.attr("type", "radio");
-                input.attr("name", "question-" + i);
-                input.attr("value", currentGame.triviaQuestions[i].answers[i]);
-                $("#answers-radios").text(input).text(currentGame.triviaQuestions[i].answers[i]); //Here we are appending the radio button to each answers beloging to each question.
-            }
-        })
+        $("#answer1").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[0]);
+        $("#answer2").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[1]);
+        $("#answer3").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[2]);
+        $("#answer4").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[3]);
+        });

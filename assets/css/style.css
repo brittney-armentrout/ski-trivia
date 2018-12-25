@@ -14,9 +14,9 @@ body {
     font-size: 44px;
     border: 2px solid black;
     height: 150px;
-    width: 600px;
+    width: 580px;
     text-align: center;
-    transform: rotate(340deg);
+    transform: rotate(350deg);
     transform-origin: 110% 0%;
     
 }
@@ -37,16 +37,12 @@ body {
     align-content: center;
     height: 300px;
     width: 500px;
-    border: none;
+    border: 2px solid black;
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
 
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-input, .answers {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -58,8 +54,19 @@ input, .answers {
     margin-right: auto;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
+    text
 }
 
-h3 {
+h3, label {
     font-family: 'Major Mono Display', monospace;
 }
+
+.form-check {
+    align-content: center;
+    text-align: center;
+}
+
+input[type=radio]{
+    transform:scale(1.5);
+    border: 1px solid black;
+  }
