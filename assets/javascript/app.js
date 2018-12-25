@@ -2,7 +2,7 @@ function Game() {
 
     // Attributes - what the game has
     this.correctAnswers = 0;
-    this.inCorrectAnswers = 0;
+    this.incorrectAnswers = 0;
     this.currentQuestionIndex = 0;
     this.triviaQuestions= [
         {
@@ -23,11 +23,11 @@ function Game() {
             rightAnswer: "Mammoth"
         }, {
             question: 'assets/images/steamboat.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Steamboat", "Crested Butte", "Nozawa Onsen", "Deer Valley"],
             rightAnswer: "Steamboat"
         }, {
             question: 'assets/images/alta.jpg', 
-            answers: ["", "", "", ""],
+            answers: ["Mammoth", "Squaw Valley", "Alta", "Crystal Mountain"],
             rightAnswer: "Alta"
         }, {
             question: 'assets/images/zermatt.jpg', 
@@ -96,27 +96,7 @@ function Game() {
         if (questionTimer === -2) {
             stop();
             // alert("Time is over!")
-            quizScore();
         }
-    }
-    function quizScore() {
-        
-        var answer = triviaQuestions[currentQuestionIndex].rightAnswer
-        
-        // For selects, checkboxes and radio buttons, we can use :checked to select the right element.
-        var guess = $("input[name='question-" + currentQuestionIndex + "']:checked").attr("value");
-        
-        //Comparing and updating the scores behind scenes
-    
-        if (answer === guess) {
-            correctAnswers++;
-        } else {
-            inCorrectAnswers++;
-        }
-    }
-
-    function endGameRevealScore() {
-
     }
 
 };
@@ -152,32 +132,11 @@ $("#start").on("click", function () {
     
     
     
-    
-    // var input = $("<input>");
-    //         input.attr("type", "radio"); 
-
-    //          input.attr("name", "answer1");
-    //         //input.attr("value", currentGame.triviaQuestions[0].answers[0]);
-    //         $("#answer-container").append(input);
-    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[0]);
-    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[1]);
-    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[2]);
-    //         $("#answer-container").appendTo(currentGame.triviaQuestions[0].answers[3]);
-    
-    //     for (var j = 0; j < currentGame.triviaQuestions[i].answers.length; j++) {
-    //         var input = $("<input>");
-    //         input.attr("type", "radio"); 
-
-    //         // input.attr("name", "question-" + j);
-    //         input.attr("value", currentGame.triviaQuestions[i].answers[j]);
-    //         $("#answer-container").append(input);
-    //         $("#answer-container").append(currentGame.triviaQuestions[i].answers[j]);
-
-    //     }
-    // })
-    
     $("#next").on("click", function () {
-        // currentGame.quizScore();
+        
+        quizScore();
+
+        $('input[name=radio-1]').attr('checked', false);
         currentGame.startTimer();
         
         currentGame.currentQuestionIndex = (currentGame.currentQuestionIndex + 1);
@@ -187,4 +146,29 @@ $("#start").on("click", function () {
         $("#answer2").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[1]);
         $("#answer3").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[2]);
         $("#answer4").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[3]);
-        });
+    });
+
+    function quizScore() {
+        
+            var answer = currentGame.triviaQuestions[currentGame.currentQuestionIndex].rightAnswer
+            console.log("checking answer value " + answer);
+            
+            // Using :checked to see which answer (what radio) the user guessed.
+            // var guess = $('input[name=radio-1]:checked').val();
+            var guess = currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[$('input[name=radio-1]:checked').val()];
+            console.log("checking guess value " + guess);
+            
+            //Comparing and updating the scores behind scenes
+        
+            if (answer === guess) {
+                currentGame.correctAnswers++;
+            } else {
+                currentGame.incorrectAnswers++;
+            }
+            console.log("win " + currentGame.correctAnswers);
+            console.log("loss " + currentGame.incorrectAnswers);
+        };
+
+        function endGameRevealScore() {
+
+        }
