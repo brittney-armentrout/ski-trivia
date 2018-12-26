@@ -12,30 +12,36 @@
   
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   
-    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Gloria+Hallelujah|Pacifico|Shadows+Into+Light+Two" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 
 
-  <title>Ski Resort Trivia Challenge</title>
+
+<title>Ski Resort Trivia Challenge</title>
 
 </head>
 
 <body>
-    <div id="title">Ski Resort<br>Trivia Challenge</div>
+    <div>
+        <div class="col-md-6" id="title">Ski Resort<br>Trivia Challenge</div>
+        
 
-    <div id="instructions">
-        <p>This trivia game tests your knowledge of ski areas using real photographs. 
-            Click Start to display a ski area photograph. Select the correct resort
-            and click Next to see the next photo. Think quick - you only have 30 seconds for each question!
-            If you run out of time without selecting an answer, the question will be scored as incorrect & the next question will generate.
-            
-            Are you really a beginner, intermediate, or expert on the slopes?! Your score is revealed at the end of the game!  
-        </p>
-    </div>
+              <div class="jumbotron jumbotron-fluid" id="instructions">
+                    <div class="container">
+                      <p class="display-4"><i class="fas fa-skiing fa-lg"></i> Beginner?  Intermediate?  or  Expert? <i class="fas fa-snowboarding fa-lg"></i></p>
+                      <p class="lead">Click 'Start' to begin.<br> 
+                          Guess which ski area is in each photo.<br>
+                          Think Quick! Each question has a 30 second timer.<br> 
+                          Score revealed at the end of game. Good Luck!</p>
+                    </div>
+                  </div>
+
 
     <div id="container">  
-            <div class="col-12 text-center" id="timer"></div>
-
+            
             
             <div class="col-12 text-center">
             <button id="start" type="button" class="btn btn-dark">Start</button><br>
@@ -44,30 +50,32 @@
             <button id="next" type="button" class="btn btn-dark">Next</button><br>
             </div>
 
+            <div class="col-12 text-center" id="timer"></div>
+
             <img id="question-container"/>
 
     <div id="answer-container">
         
         <div class="col-12 d-flex justify-content-center">
-            <h3>Guess Which Ski Resort!!</h3><br></div>
+            <h3>Guess Which Ski Resort!!</h3><br><br></div>
             
             <div class="form-check">
                     <input class="form-check-input" type="radio" name="radio-1" value="0">
-                    <label class="form-check-label" for="radio-1" id="answer1"></label>
+                    <label class="form-check-label" for="radio-1" id="answer1"></label><br><br>
                   </div>
 
             <div class="form-check">
                     <input class="form-check-input" type="radio" name="radio-1" value="1">
-                    <label class="form-check-label" for="radio-2" id="answer2"></label>
+                    <label class="form-check-label" for="radio-2" id="answer2"></label><br><br>
                     
                   </div>
             <div class="form-check">
                         <input class="form-check-input" type="radio" name="radio-1" value="2">
-                        <label class="form-check-label" for="radio-3" id="answer3"></label>
+                        <label class="form-check-label" for="radio-3" id="answer3"></label><br><br>
                       </div>
             <div class="form-check">
                             <input class="form-check-input" type="radio" name="radio-1" value="3">
-                            <label class="form-check-label" for="radio-4" id="answer4"></label>
+                            <label class="form-check-label" for="radio-4" id="answer4"></label><br><br>
                           </div>
 
                           </div>                

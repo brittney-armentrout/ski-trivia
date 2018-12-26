@@ -96,6 +96,8 @@ function Game() {
         if (questionTimer === -2) {
             stop();
             alert("Time is over!")
+            nextButton();
+
         }
     }
 
@@ -133,7 +135,7 @@ $("#start").on("click", function () {
     
     
     
-    $("#next").on("click", function () {
+    $("#next").on("click", function() {
         
         quizScore();
 
@@ -179,10 +181,13 @@ $("#start").on("click", function () {
         };
 
     function endGameRevealScore() {
-                    alert("Correct Answers: " + currentGame.correctAnswers);
-                    alert("Incorrect Answers: " + currentGame.incorrectAnswers);
-                };
-
-
-
-            
+        $("#question-container").hide();
+        $("#answer-container").hide();
+        $("#timer").hide();
+        $("#next").hide();
+        
+        alert("Correct Answers: " + currentGame.correctAnswers);
+        alert("Incorrect Answers: " + currentGame.incorrectAnswers);
+                
+    };
+}
