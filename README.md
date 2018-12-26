@@ -9,7 +9,7 @@ This trivia game tests your knowledge of ski areas using real photographs.
     Select the correct resort by clicking on the corresponding radio button
     Click 'Next' button to reveal next question
     Each question has an alotted time of 30 seconds. Players must think quick! 
-            If player runs out of time without selecting an answer, the question will be scored as incorrect & the next question will generate
+            If player runs out of time without selecting an answer, the question will be scored as incorrect & the next question will generate. 
 
     Player score revealed at end of the game. 
 

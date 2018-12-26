@@ -85,7 +85,7 @@ input[type=radio]{
 }
 
 #scoreboard {
-    opacity: 80%;
+    opacity: 50%;
     background: url("../images/background5.jpg");
     font-family: 'Shadows Into Light Two', cursive;
     display: block;

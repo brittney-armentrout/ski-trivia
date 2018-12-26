@@ -1,6 +1,6 @@
 function Game() {
 
-    // Attributes - what the game has
+    // Attributes
     this.correctAnswers = 0;
     this.incorrectAnswers = 0;
     this.currentQuestionIndex = 0;
@@ -73,17 +73,17 @@ function Game() {
     
     ];
 
-    var questionTimer = 20;
+    var questionTimer = 0;
     var intervalId = null;
 
-    // functions what the game can do
+    // Timer Function
     this.startTimer = function() {
         questionTimer = 30;
         clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
     }
 
-    function stop() {
+    this.stop = function() {
         clearInterval(intervalId);
         questionTimer = [];
         $("#timer").text(questionTimer);
@@ -95,12 +95,8 @@ function Game() {
         questionTimer--;
         if (questionTimer === -2) {
             stop();
-            //
-                alert("Time is over, moving on!");
-             //   console.log("currentquestionindex is " + this.currentQuestionIndex)
-        
-            
-            ClickNextButton();
+            alert("Time is over, moving on!");
+            clickNextButton();
 
         }
     }
@@ -142,11 +138,11 @@ $("#start").on("click", function () {
     
     
     $("#next").on("click", function() {
-        ClickNextButton();
+        clickNextButton();
     });
 
     
-    function ClickNextButton() {
+    function clickNextButton() {
         quizScore();
 
         if (currentGame.currentQuestionIndex === 15) {
@@ -194,7 +190,8 @@ $("#start").on("click", function () {
     function endGameRevealScore() {
         $("#question-container").hide();
         $("#answer-container").hide();
-        $("#timer").hide();
+        currentGame.stop();
+        $("#timer").remove();
         $("#next").hide();
         $("#results-container").show();
         $("#scoreboard").show();
