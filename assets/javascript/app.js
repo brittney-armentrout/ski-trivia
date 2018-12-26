@@ -95,8 +95,12 @@ function Game() {
         questionTimer--;
         if (questionTimer === -2) {
             stop();
-            alert("Time is over!")
-            nextButton();
+            //
+                alert("Time is over, moving on!");
+             //   console.log("currentquestionindex is " + this.currentQuestionIndex)
+        
+            
+            ClickNextButton();
 
         }
     }
@@ -113,6 +117,8 @@ var currentQuestion
 $("#next").hide();
 $("#question-container").hide();
 $("#answer-container").hide();
+$("#results-container").hide();
+$("#scoreboard").hide();
 
 // On clicking start button, below function will be activated.
 
@@ -136,10 +142,15 @@ $("#start").on("click", function () {
     
     
     $("#next").on("click", function() {
-        
+        ClickNextButton();
+    });
+
+    
+    function ClickNextButton() {
         quizScore();
 
         if (currentGame.currentQuestionIndex === 15) {
+            currentGame.stop
             endGameRevealScore();
         }
         
@@ -155,9 +166,9 @@ $("#start").on("click", function () {
         $("#answer2").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[1]);
         $("#answer3").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[2]);
         $("#answer4").text(currentGame.triviaQuestions[currentGame.currentQuestionIndex].answers[3]);
-    }
-
-    });
+        
+       
+    };
 
     function quizScore() {
         
@@ -185,9 +196,25 @@ $("#start").on("click", function () {
         $("#answer-container").hide();
         $("#timer").hide();
         $("#next").hide();
+        $("#results-container").show();
+        $("#scoreboard").show();
+
+        if (currentGame.correctAnswers > 12 ) {
+            $("#results-text1").text("You get around... Way to know your resorts! Olympic Pro!");
+        } 
+        if (currentGame.correctAnswers > 8 && currentGame.correctAnswers < 13) {
+             $("#results-text1").text("You Rock! Keep shredding the gnar!");
+         } 
+        if (currentGame.correctAnswers > 4 && currentGame.correctAnswers < 9) {
+            $("#results-text1").text("Not bad... everyone has to start on those greens and blues!");
+        } 
+        if (currentGame.correctAnswers < 5 ){
+            $("#results-text1").text("Keep Practicing and Stick to the Bunny Slopes, Jerry!");
+    
+        }
+
+        $("#results-text2").text("Correct Answers: " + currentGame.correctAnswers + " " + "Incorrect Answers: " + currentGame.incorrectAnswers);
         
-        alert("Correct Answers: " + currentGame.correctAnswers);
-        alert("Incorrect Answers: " + currentGame.incorrectAnswers);
                 
     };
-}
+    };

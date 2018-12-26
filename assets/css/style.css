@@ -64,11 +64,11 @@ h3 {
     align-content: center;
     text-align: center;
     font-family: 'Major Mono Display', monospace;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 input[type=radio]{
-    transform:scale(1.75);
+    transform:scale(1.5);
   }
 
 
@@ -82,4 +82,15 @@ input[type=radio]{
 
 .lead {
     text-align: center;
+}
+
+#scoreboard {
+    opacity: 80%;
+    background: url("../images/background5.jpg");
+    font-family: 'Shadows Into Light Two', cursive;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 18px;
 }

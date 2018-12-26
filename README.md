@@ -19,8 +19,6 @@ This trivia game tests your knowledge of ski areas using real photographs.
 
     Thanks for playing! Reload page to play again! 
 
-    ISSUES: 
-    go to next question if run out of time
-    stop timer at end of game/turn off alert
-    display score at end 
+    
+    
 
