@@ -14,7 +14,7 @@ function Game() {
             answers: ["Bachelor", "Big Sky", "Stevens Pass", "Sun Valley"],
             rightAnswer: "Bachelor"
         }, {
-            question: 'assets/images/abasin.png', 
+            question: 'assets/images/abasin.jpg', 
             answers: ["Snowbird", "Arapahoe Basin", "Telluride", "Breckenridge"],
             rightAnswer: "Arapahoe Basin"
         }, {
@@ -210,7 +210,7 @@ $("#start").on("click", function () {
     
         }
 
-        $("#results-text2").text("Correct Answers: " + currentGame.correctAnswers + " " + "Incorrect Answers: " + currentGame.incorrectAnswers);
+        $("#results-text2").text("Correct Answers: " + currentGame.correctAnswers + "  " + "Incorrect Answers: " + currentGame.incorrectAnswers);
         
                 
     };
