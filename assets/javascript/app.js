@@ -30,7 +30,7 @@ function Game() {
             answers: ["Mammoth", "Squaw Valley", "Alta", "Crystal Mountain"],
             rightAnswer: "Alta"
         }, {
-            question: 'assets/images/zermatt.jpg', 
+            question: 'assets/images/matterhorn.jpg', 
             answers: ["Perisher", "Zermatt", "Eldora", "Mt. Hood"],
             rightAnswer: "Zermatt"
         }, {
