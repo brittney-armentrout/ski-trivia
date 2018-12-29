@@ -19,7 +19,7 @@ function Game() {
             rightAnswer: "Arapahoe Basin"
         }, {
             question: 'assets/images/mammoth.jpg', 
-            answers: ["Hood", "Copper", "Bachelor", "Mammoth"],
+            answers: ["Mt. Hood", "Copper", "Bachelor", "Mammoth"],
             rightAnswer: "Mammoth"
         }, {
             question: 'assets/images/steamboat.jpg', 
